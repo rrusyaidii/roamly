@@ -22,7 +22,7 @@ function FormContainer({
   //useeffect
   useEffect(() => {
     if (state.message) {
-      toast({ description: state.message });
+      toast({ description: state.message, duration: 3000 });
     }
   }, [state]);
 
