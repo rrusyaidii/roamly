@@ -1,5 +1,5 @@
 import { Label } from "@/components/ui/label";
-import { categories } from "@/utils/categories";
+import { formattedCountries } from "@/utils/countries";
 import {
   Select,
   SelectContent,
@@ -8,16 +8,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-function CategoriesInput({ defaultValue }: { defaultValue?: string }) {
-  const name = "category";
-
+function CountriesInput({ defaultValue }: { defaultValue?: string }) {
+  const name = "country";
   return (
     <div className="mb-2">
       <Label htmlFor={name} className="capitalize">
-        categories
+        Country
       </Label>
       <Select
-        defaultValue={defaultValue || categories[0].label}
+        defaultValue={defaultValue || formattedCountries[0].code}
         name={name}
         required
       >
@@ -25,11 +24,11 @@ function CategoriesInput({ defaultValue }: { defaultValue?: string }) {
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
-          {categories.map((item) => {
+          {formattedCountries.map((item) => {
             return (
-              <SelectItem key={item.label} value={item.label}>
-                <span className="flex items-center gap-2 capitalize">
-                  <item.icon /> {item.label}
+              <SelectItem key={item.code} value={item.code}>
+                <span className="flex items-center gap-2">
+                  {item.flag} {item.name}
                 </span>
               </SelectItem>
             );
@@ -40,4 +39,4 @@ function CategoriesInput({ defaultValue }: { defaultValue?: string }) {
   );
 }
 
-export default CategoriesInput;
+export default CountriesInput;
