@@ -322,9 +322,8 @@ export const fetchPropertyReviews = async (propertyId: string) => {
     orderBy: {
       createdAt: "desc",
     },
-  });
-
-  return { message: "fetch reviews" };
+  })
+  return reviews;
 };
 
 export const fetchPropertyReviewsByUser = async () => {
