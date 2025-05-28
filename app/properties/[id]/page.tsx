@@ -13,6 +13,7 @@ import Description from "@/components/properties/Description";
 import Amenities from "@/components/properties/Amenities";
 import dynamic from "next/dynamic";
 import { Skeleton } from "@/components/ui/skeleton";
+import SubmitReview from "@/components/reviews/SubmitReview";
 
 async function PropertyDetailsPage({ params }: { params: { id: string } }) {
   const property = await fetchPropertyDetails(params.id);
@@ -62,6 +63,9 @@ async function PropertyDetailsPage({ params }: { params: { id: string } }) {
           {/* calendar */}
           <BookingCalendar />
         </div>
+      </section>
+      <section>
+        <SubmitReview propertyId={property.id} />
       </section>
     </section>
   );
