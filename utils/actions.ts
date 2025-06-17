@@ -403,3 +403,11 @@ export const findExistingReview = async (
     },
   });
 };
+
+export const createBookingAction = async (prevState: {
+  propertyId: string;
+  checkIn: Date;
+  checkOut: Date;
+}) => {
+  return { message: "create booking" };
+};
