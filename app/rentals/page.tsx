@@ -16,6 +16,15 @@ import {
 import FormContainer from "@/components/form/FormContainer";
 import { IconButton } from "@/components/form/Buttons";
 
+function DeleteRental({ propertyId }: { propertyId: string }) {
+  const deleteRental = deleteRentalAction.bind(null, { propertyId });
+  return (
+    <FormContainer action={deleteRental}>
+      <IconButton actionType="delete" />
+    </FormContainer>
+  );
+}
+
 async function RentalsPage() {
   const rentals = await fetchRentals();
 
@@ -36,6 +45,34 @@ async function RentalsPage() {
             <TableHead>Actions</TableHead>
           </TableRow>
         </TableHeader>
+        <TableBody>
+          {rentals.map((rental) => {
+            const { id: propertyId, name, price } = rental;
+            const { totalNightsSum, orderTotalSum } = rental;
+            return (
+              <TableRow key={propertyId}>
+                <TableCell>
+                  <Link
+                    href={`/properties/${propertyId}`}
+                    className="underline text-muted-foreground tracking-wide"
+                  >
+                    {name}
+                  </Link>
+                </TableCell>
+                <TableCell>{formatCurrency(price)}</TableCell>
+                <TableCell>{totalNightsSum || 0}</TableCell>
+                <TableCell>{formatCurrency(orderTotalSum)}</TableCell>
+
+                <TableCell className="flex items-center gap-x-2">
+                  <Link href={`/rentals/${propertyId}/edit`}>
+                    <IconButton actionType="edit"></IconButton>
+                  </Link>
+                  <DeleteRental propertyId={propertyId} />
+                </TableCell>
+              </TableRow>
+            );
+          })}
+        </TableBody>
       </Table>
     </div>
   );
