@@ -26,7 +26,11 @@ function CheckoutPage() {
   const options = { fetchClientSecret };
 
   return (
-    <div id="checkout">
+    <div id="checkout" className="p-6">
+      <div className="mb-4 p-4 border border-yellow-400 bg-yellow-100 rounded text-sm text-yellow-800">
+        💳 <strong>Test card:</strong> Use <code>4242 4242 4242 4242</code> with
+        any future expiry date and any CVC.
+      </div>
       <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
         <EmbeddedCheckout />
       </EmbeddedCheckoutProvider>
