@@ -1,12 +1,6 @@
-
-[README.md](https://github.com/user-attachments/files/21746934/README.md)
 # Roamly
 
 Transforming Ideas Into Limitless Possibilities
-
-![Last Commit](https://img.shields.io/badge/last%20commit-july-blue)
-![TypeScript](https://img.shields.io/badge/typescript-98.5%25-blue)
-![Languages](https://img.shields.io/badge/languages-3-brightgreen)
 
 ## Overview
 
@@ -20,6 +14,9 @@ The core features include:
 - **🔒 Security & Middleware**: Route protection and role-based access control to safeguard user data.
 - **📊 Admin & Analytics**: Dashboard components for monitoring platform performance and reservations.
 - **🗺️ Location & Data Management**: Geographical data, schemas, and state management for dynamic content.
+- **💳 Payment Integration**: Stripe payment system using developer test values for safe transaction testing.
+- **🔑 Authentication**: User registration and login via GitHub, Google, or email/password.
+
 
 ## Built with the tools and technologies:
 
